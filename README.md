@@ -54,7 +54,7 @@ az network nsg rule create --resource-group myResourceGroup \
 #### Database VM setup
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/pg-hammerdb-dbtune.git
+git clone https://github.com/dbtuneai/pg-hammerdb-dbtune.git
 cd pg-hammerdb-dbtune
 
 # Run the setup script
@@ -64,7 +64,7 @@ sudo ./scripts/setup/db_vm_setup.sh
 #### Client VM setup
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/pg-hammerdb-dbtune.git
+git clone https://github.com/dbtuneai/pg-hammerdb-dbtune.git
 cd pg-hammerdb-dbtune
 
 # Run the setup script

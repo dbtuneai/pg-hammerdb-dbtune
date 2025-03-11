@@ -40,6 +40,7 @@ PG_USER="admin"
 PG_PASSWORD="password"
 
 # Download and extract HammerDB
+cd "$REPO_DIR/.."
 echo "Downloading HammerDB..."
 wget https://github.com/TPC-Council/HammerDB/releases/download/v4.12/HammerDB-4.12-Linux.tar.gz
 tar -xzf HammerDB-4.12-Linux.tar.gz
@@ -89,10 +90,10 @@ echo "The HammerDB scripts have been configured with connection to $PG_HOST"
 echo "Using standard credentials: admin/password"
 echo ""
 echo "To build the schema, run:"
-echo "cd HammerDB-4.12"
+echo "cd $REPO_DIR/../HammerDB-4.12"
 echo "./hammerdbcli py auto ./scripts/python/postgres/tprocc/pg_tprocc_buildschema.py"
 echo ""
 echo "To run the benchmark, run:"
-echo "cd HammerDB-4.12"
+echo "cd $REPO_DIR/../HammerDB-4.12"
 echo "./hammerdbcli py auto ./scripts/python/postgres/tprocc/pg_tprocc_run.py"
 
