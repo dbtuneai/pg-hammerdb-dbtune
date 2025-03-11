@@ -1,4 +1,4 @@
-# PostgreSQL Performance Tuning with HammerDB and DBtune
+# PostgreSQL performance tuning with HammerDB and DBtune
 
 This repository contains scripts and instructions to replicate the performance tuning experiments described in our blog post: [Maximizing TPROC-C Performance with HammerDB and DBtune].
 
@@ -31,11 +31,11 @@ Our tests showed performance improvements of up to 2.14x in throughput and 4.03x
 
 ## Quick start
 
-### 1. Network Configuration
+### 1. Network configuration
 
 Before setting up the VMs, ensure:
 1. Both VMs can communicate with each other on the same virtual network
-2. PostgreSQL port (5432) is open in Network Security Group (NSG) or firewall rules
+2. PostgreSQL port (5432) is open in network security group (NSG) or firewall rules
 3. SSH access is enabled for both VMs
 
 ```bash
@@ -77,7 +77,7 @@ The client VM setup script will:
 - Create modified HammerDB scripts with your connection details
 - Test connectivity to the PostgreSQL server
 
-### 3. Build the Schema
+### 3. Build the schema
 
 ```bash
 cd ~/HammerDB-4.12
@@ -117,7 +117,7 @@ cd ~/HammerDB-4.12
 - Connect the DBtune agent and start a tuning session (reload-only or restart mode)
 - DBtune will automatically apply the optimal configuration after completing its tuning iterations
 
-## Experiment Scenarios
+## Experiment scenarios
 
 We recommend running the following scenarios:
 1. PGTune defaults with reload
@@ -125,7 +125,7 @@ We recommend running the following scenarios:
 3. PostgreSQL defaults with restart
 4. PGTune defaults with restart
 
-## Results Summary
+## Results summary
 
 | Scenario | Initial TPS | Tuned TPS | Speedup | Initial AQR (ms) | Tuned AQR (ms) | AQR Improvement |
 |----------|-------------|-----------|---------|------------------|----------------|-----------------|
@@ -134,19 +134,19 @@ We recommend running the following scenarios:
 | PostgreSQL defaults (restart) | 1644 | 3521 | 2.14x | 145.0 | 35.9 | 4.03x |
 | PGTune defaults (restart) | 1955 | 4126 | 2.11x | 52.9 | 35.0 | 1.51x |
 
-## Detailed Steps
+## Detailed steps
 
-### 1. VM Setup
+### 1. VM setup
 
 The Database VM hosts PostgreSQL 17 and the DBtune agent, while the Client VM runs HammerDB to generate the test workload. We use identical VM specifications (Standard_D8ads_v6 with 8 vCPUs and 32GB RAM) to ensure consistent benchmarking.
 
 The database VM uses the NVMe ephemeral disk for PostgreSQL data storage to maximize I/O performance. We configure PostgreSQL with 300 max connections to support our 285 virtual users.
 
-### 2. Schema Creation
+### 2. Schema creation
 
 We create a TPROC-C schema with 500 warehouses, resulting in approximately 50GB of initial data. This is within the recommended range of 250-500 warehouses per CPU socket and provides a realistic dataset for benchmarking.
 
-### 3. Workload Configuration
+### 3. Workload configuration
 
 We configure HammerDB with:
 - 285 virtual users (close to the 300 max connections limit)
@@ -154,7 +154,7 @@ We configure HammerDB with:
 - Time profiling disabled (to prevent memory issues during long runs)
 - Random warehouse distribution (to simulate realistic I/O patterns)
 
-### 4. Performance Tuning
+### 4. Performance tuning
 
 For each scenario, we:
 1. Apply the initial configuration
