@@ -1,6 +1,6 @@
 # PostgreSQL performance tuning with HammerDB and DBtune
 
-This repository contains scripts and instructions to replicate the performance tuning experiments described in our blog post: [Maximizing TPROC-C Performance with HammerDB and DBtune].
+This repository contains scripts and instructions to replicate the performance tuning experiments described in our blog post: [DBtune and HammerDB: Your guide to fair PostgreSQL benchmarking](https://www.dbtune.com/blog/dbtune-and-hammerdb).
 
 ## Overview
 
